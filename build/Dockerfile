@@ -39,9 +39,6 @@ RUN cd /usr/local/src/dovecot && git checkout ${DOVECOT}
 RUN cd /usr/local/src/dovecot && git checkout $DOVECOT
 >>>>>>> changed ENV to ARG
 
-RUN cd /usr/local/src/dovecot && ./autogen.sh && ./configure --enable-maintainer-mode --enable-devel-checks --with-zlib
-RUN cd /usr/local/src/dovecot && make clean install
-
 ADD dovecot_config/ /usr/local/etc/
 ADD imaptest /usr/local/bin/
 ADD lmtp_test_mail.tld /root/
