@@ -12,10 +12,14 @@ RUN mkdir -p /usr/local/src
 
 RUN git clone https://github.com/dovecot/core.git /usr/local/src/dovecot
 <<<<<<< HEAD
+<<<<<<< HEAD
 RUN cd /usr/local/src/dovecot && git checkout $DOVECOT
 =======
 RUN cd /usr/local/src/dovecot && git checkout ${DOVECOT : -master}
 >>>>>>> added ENV DOVECOT to dockerfile
+=======
+RUN cd /usr/local/src/dovecot && git checkout ${DOVECOT}
+>>>>>>> DOVECOT ENV
 
 RUN cd /usr/local/src/dovecot && ./autogen.sh && ./configure --enable-maintainer-mode --enable-devel-checks
 RUN cd /usr/local/src/dovecot && make -j clean install
