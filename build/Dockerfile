@@ -1,7 +1,8 @@
 FROM ubuntu:16.04
 LABEL maintainer="p.mauritius@tallence.com"
 ARG CEPH=v12.2.0
-ENV DOVECOT ${DOVECOT}
+ARG DOVECOT
+
 RUN apt-get -qq update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -qq -y \
       build-essential apt-utils git gettext automake \
@@ -13,6 +14,7 @@ RUN mkdir -p /usr/local/src
 RUN git clone https://github.com/dovecot/core.git /usr/local/src/dovecot
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 RUN cd /usr/local/src/dovecot && git checkout $DOVECOT
 =======
 RUN cd /usr/local/src/dovecot && git checkout ${DOVECOT : -master}
@@ -20,6 +22,9 @@ RUN cd /usr/local/src/dovecot && git checkout ${DOVECOT : -master}
 =======
 RUN cd /usr/local/src/dovecot && git checkout ${DOVECOT}
 >>>>>>> DOVECOT ENV
+=======
+RUN cd /usr/local/src/dovecot && git checkout $DOVECOT
+>>>>>>> changed ENV to ARG
 
 RUN cd /usr/local/src/dovecot && ./autogen.sh && ./configure --enable-maintainer-mode --enable-devel-checks
 RUN cd /usr/local/src/dovecot && make -j clean install
