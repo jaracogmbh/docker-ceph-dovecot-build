@@ -27,4 +27,4 @@ RUN cd /usr/local/src/dovecot && git checkout $DOVECOT
 >>>>>>> changed ENV to ARG
 
 RUN cd /usr/local/src/dovecot && ./autogen.sh && ./configure --enable-maintainer-mode --enable-devel-checks
-RUN cd /usr/local/src/dovecot && make -j clean install
+RUN cd /usr/local/src/dovecot && make clean install
